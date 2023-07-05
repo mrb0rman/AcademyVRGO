@@ -10,6 +10,7 @@ namespace Script.UI
         public UIStartWindow _window;
         public Image image;
         public float speed;
+        private bool isPressed = false;
 
         private void Start()
         {
@@ -17,7 +18,14 @@ namespace Script.UI
         }
         private void Update()
         {
-            _window.Show(image, speed);
+            if(Input.GetKeyDown(KeyCode.A) && !isPressed)
+            {
+                isPressed = true;
+            }
+            else if(isPressed)
+            {
+                _window.Show(image, speed);
+            }
         }
     }
 }
