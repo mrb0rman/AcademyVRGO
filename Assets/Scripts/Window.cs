@@ -9,28 +9,28 @@ namespace Script
     {
         private Dictionary<Type, GameObject> dict;
 
-        public void Load(Type type)
+        public void Load()
         {
+            
+            
             Debug.Log("Load");
         }
         public void Init()
         {
-            dict.Add();
-            Debug.Log("Init");
-            Debug.Log(dict);
-        }
-        public void Show<T>() where T : IWindow
-        {
-            gameObject.SetActive(true);
-        }
-        public void Hide<T>() where T : IWindow
-        {
-            gameObject.SetActive(false);
             
         }
-
-        public void Get<T>(string name) where T : IWindow
+        public void Show<T>(UIROOT _ui) where T : Window
         {
+            gameObject.transform.SetParent(_ui.Conteiner);
+        }
+        public void Hide<T>(UIROOT _ui) where T : Window
+        {
+            gameObject.transform.SetParent(_ui.DeactivateConteiner);
+        }
+
+        public void Get<T>() where T : Window
+        {
+
         }
     }
 }

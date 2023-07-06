@@ -4,10 +4,10 @@ namespace Script
 {
     public interface IWindow
     {
-        void Load(Type type); 
-        void Init(Window window, string name);
-        void Show<T>() where T : IWindow;
-        void Hide<T>() where T : IWindow;
-        void Get<T>(string name) where T : IWindow;
+        void Load(); 
+        void Init();
+        void Show<T>(UIROOT _ui) where T : Window;
+        void Hide<T>(UIROOT _ui) where T : Window;
+        void Get<T>() where T : Window;
     }
 }
