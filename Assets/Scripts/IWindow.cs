@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-namespace Script.UI
+﻿namespace Script
 {
     public interface IWindow
     {
-        void Show(Image image, float speed);
+        void Load();
+        void Init();
+        void Show<T>();
+        void Hide<T>();
     }
 }
