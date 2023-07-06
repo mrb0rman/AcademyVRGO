@@ -1,17 +1,25 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace Script
 {
     public class MenuController : MonoBehaviour
     {
-        public GameObject ActivePanel;
-        public GameObject LoadPanel;
-
+        public GameObject activePanel;
+        public GameObject loadPanel;
+        
         private void Start()
         {
-            var window = Resources.LoadAll<Window>("");
+            Debug.Log("Start");
+            var windows = Resources.LoadAll<GameObject>("");
+            foreach (var w in windows)
+            {
+                Debug.Log(w);
+            }
+        }
+
+        private void Update()
+        {
+            
         }
     }
 }
