@@ -14,9 +14,7 @@ namespace Script
     {
         private Dictionary<Type, UIWindow> loadedWindows = new Dictionary<Type, UIWindow>();
         private Dictionary<Type, GameObject> initWindows = new Dictionary<Type, GameObject>();
-        private IUIService _iuiServiceImplementation;
-        private IUIService _iuiServiceImplementation1;
-
+        
         public void Load()
         {
             var windows = Resources.LoadAll("", typeof(UIWindow));
@@ -39,25 +37,34 @@ namespace Script
         public T Get<T>() where T : UIWindow
         {
             var type = typeof(T);
-            if (initWindows.ContainsKey(type))
-            {
-                return initWindows[type].GetComponent<T>();
-            }
-            return null;
+            return initWindows[type]?.GetComponent<T>() ?? null;
+            
         }
 
         public void Hide<T>(UIROOT ui) where T : UIWindow
         {
             var type = typeof(T);
             GameObject window = initWindows[type];
-            window.transform.SetParent(ui.DeactivateConteiner, false);
+            if (initWindows.ContainsKey(type))
+            {
+                window.transform.SetParent(ui.DeactivateConteiner, false);
+                window.transform.position = ui.ActivateConteiner.transform.position;
+                window.transform.rotation = ui.ActivateConteiner.transform.rotation;
+                window.transform.localScale = ui.ActivateConteiner.transform.localScale;
+            }
         }
 
         public void Show<T>(UIROOT ui) where T : UIWindow
         {
             var type = typeof(T);
             GameObject window = initWindows[type];
-            window.transform.SetParent(ui.ActivateConteiner, false); 
+            if (initWindows.ContainsKey(type))
+            {
+                window.transform.position = ui.ActivateConteiner.transform.position;
+                window.transform.rotation = ui.ActivateConteiner.transform.rotation;
+                window.transform.localScale = ui.ActivateConteiner.transform.localScale;
+                window.transform.SetParent(ui.ActivateConteiner, false);
+            }
         }
     }
 }

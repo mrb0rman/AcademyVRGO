@@ -26,7 +26,8 @@ namespace Script
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                _uiService.Get<StartUIWindow>().Hide();
+                // _uiService.Get<StartUIWindow>().Hide();
+                _uiService.Hide<StartUIWindow>(_ui);
                 Debug.Log("2");
             } else if(Input.GetKeyDown(KeyCode.Alpha3))
             {
