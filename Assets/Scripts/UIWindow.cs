@@ -6,12 +6,12 @@ namespace Script
     {
         public virtual void Hide()
         {
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
 
         public virtual void Show()
         {
-            
+            gameObject.SetActive(true);
         }
     }
 }

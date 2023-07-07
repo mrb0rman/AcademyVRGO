@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public class UIService : MonoBehaviour, IUIService
+    public class UIService : IUIService
     {
         private Dictionary<Type, UIWindow> loadedWindows = new Dictionary<Type, UIWindow>();
         private Dictionary<Type, GameObject> initWindows = new Dictionary<Type, GameObject>();
@@ -31,7 +31,7 @@ namespace Script
         {
             foreach (var key in loadedWindows.Keys)
             {
-                UIWindow view =  Instantiate(loadedWindows[key], ui.DeactivateConteiner);
+                UIWindow view =  GameObject.Instantiate(loadedWindows[key], ui.DeactivateConteiner);
                 initWindows.Add(key, view.gameObject);
             }
         }
@@ -57,7 +57,7 @@ namespace Script
         {
             var type = typeof(T);
             GameObject window = initWindows[type];
-            window.transform.SetParent(ui.Conteiner, false); 
+            window.transform.SetParent(ui.ActivateConteiner, false); 
         }
     }
 }

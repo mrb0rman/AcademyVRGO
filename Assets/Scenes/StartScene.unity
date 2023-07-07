@@ -152,8 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2c86876214c452e979cb5b6c5953db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePanel: {fileID: 0}
-  loadPanel: {fileID: 0}
   _ui: {fileID: 957562634}
 --- !u!4 &383700592
 Transform:
@@ -315,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5068004bbb4879967d7a4927c61660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conteiner: {fileID: 641774349}
+  activateConteiner: {fileID: 0}
   deactivateConteiner: {fileID: 1432831205}
 --- !u!224 &957562635
 RectTransform:
@@ -422,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1432831205
 Transform:
   m_ObjectHideFlags: 0

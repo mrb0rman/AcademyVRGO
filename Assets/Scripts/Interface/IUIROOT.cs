@@ -4,7 +4,7 @@ namespace Script
 {
     public interface IUIROOT
     {
-        Transform Conteiner { get; }
+        Transform ActivateConteiner { get; }
         Transform DeactivateConteiner { get; }
     }
 }
