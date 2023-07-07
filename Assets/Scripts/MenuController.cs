@@ -6,27 +6,27 @@ namespace Script
 {
     public class MenuController : MonoBehaviour
     {
-        public GameObject activePanel;
-        public GameObject loadPanel;
-        private Dictionary<Type, GameObject[]> dict = new Dictionary<Type, GameObject[]>();
+        /*public GameObject activePanel;
+        public GameObject loadPanel;*/
 
         [SerializeField] UIROOT _ui;
-
+        private UIService _uiService = new UIService();
         private void Start()
         {
-            var windows = Resources.LoadAll<GameObject>("");
-
-            dict.Add(windows[0].GetType(), windows);
+            _uiService.Load();
+            _uiService.Init(_ui);
         }
 
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {
+                _uiService.Show<StartUIWindow>(_ui);
                 Debug.Log("1");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
+                _uiService.Hide<StartUIWindow>(_ui);
                 Debug.Log("2");
             } else if(Input.GetKeyDown(KeyCode.Alpha3))
             {

@@ -1,6 +1,6 @@
 ﻿namespace Script
 {
-    public class MWindow : Window
+    public class SecondUIWindow : UIWindow
     {
         
     }

@@ -7,7 +7,7 @@ namespace Script
         [SerializeField] private Transform conteiner;
         [SerializeField] private Transform deactivateConteiner;
         
-        public Transform Conteiner { get; }
-        public Transform DeactivateConteiner { get; }
+        public Transform Conteiner { get => conteiner; }
+        public Transform DeactivateConteiner { get => deactivateConteiner; }
     }
 }
