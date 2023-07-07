@@ -1,4 +1,10 @@
-﻿using System;
+﻿
+
+// TODO:
+// Дописать в hide и show проверки на null и сделать обнуление координат
+
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
