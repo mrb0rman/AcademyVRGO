@@ -37,7 +37,12 @@ namespace Script
         public T Get<T>() where T : UIWindow
         {
             var type = typeof(T);
-            return initWindows[type]?.GetComponent<T>() ?? null;
+            GameObject window = initWindows[type];
+            if(window.ContainsKey(type))
+            {
+                return window.GetComponent<T>();
+            }
+            return null;
             
         }
 
