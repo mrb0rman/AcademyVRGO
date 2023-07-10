@@ -1,10 +1,4 @@
-﻿
-
-// TODO:
-// Дописать в hide и show проверки на null и сделать обнуление координат
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +8,8 @@ namespace Script
     {
         private Dictionary<Type, UIWindow> loadedWindows = new Dictionary<Type, UIWindow>();
         private Dictionary<Type, GameObject> initWindows = new Dictionary<Type, GameObject>();
-        
+        private UIROOT ui;
+            
         public void Load()
         {
             var windows = Resources.LoadAll("", typeof(UIWindow));
@@ -27,6 +22,7 @@ namespace Script
         
         public void Init(UIROOT ui)
         {
+            this.ui = ui;
             foreach (var key in loadedWindows.Keys)
             {
                 UIWindow view =  GameObject.Instantiate(loadedWindows[key], ui.DeactivateConteiner);
@@ -37,39 +33,45 @@ namespace Script
         public T Get<T>() where T : UIWindow
         {
             var type = typeof(T);
-            GameObject window = initWindows[type];
-            if(window.ContainsKey(type))
+            if(initWindows.ContainsKey(type))
             {
-                return window.GetComponent<T>();
+                return initWindows[type].GetComponent<T>();
             }
             return null;
             
         }
 
-        public void Hide<T>(UIROOT ui) where T : UIWindow
+        public Type Hide<T>() where T : UIWindow
         {
             var type = typeof(T);
-            GameObject window = initWindows[type];
             if (initWindows.ContainsKey(type))
             {
-                window.transform.SetParent(ui.DeactivateConteiner, false);
-                window.transform.position = ui.ActivateConteiner.transform.position;
-                window.transform.rotation = ui.ActivateConteiner.transform.rotation;
-                window.transform.localScale = ui.ActivateConteiner.transform.localScale;
+                var rect = initWindows[type].transform as RectTransform;
+                Update(rect);
+                rect.SetParent(ui.DeactivateConteiner, false);
             }
+            return type;
         }
 
-        public void Show<T>(UIROOT ui) where T : UIWindow
+        public Type Show<T>() where T : UIWindow
         {
             var type = typeof(T);
-            GameObject window = initWindows[type];
             if (initWindows.ContainsKey(type))
-            {
-                window.transform.position = ui.ActivateConteiner.transform.position;
-                window.transform.rotation = ui.ActivateConteiner.transform.rotation;
-                window.transform.localScale = ui.ActivateConteiner.transform.localScale;
-                window.transform.SetParent(ui.ActivateConteiner, false);
+            { 
+                var rect = initWindows[type].transform as RectTransform;
+                Update(rect);
+                rect.SetParent(ui.ActivateConteiner, false);
             }
+            return type;
+        }
+
+        private void Update(RectTransform rect)
+        {
+            rect.localPosition = ui.ActivateConteiner.transform.position;
+            rect.localRotation = ui.ActivateConteiner.transform.rotation;
+            rect.localScale = ui.ActivateConteiner.transform.localScale;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
         }
     }
 }

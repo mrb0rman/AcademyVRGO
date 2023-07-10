@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Script
 {
@@ -19,19 +17,16 @@ namespace Script
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                _uiService.Show<StartUIWindow>(_ui);
+                _uiService.Show<StartUIWindow>();
                 Debug.Log("1");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 // _uiService.Get<StartUIWindow>().Hide();
-                _uiService.Hide<StartUIWindow>(_ui);
+                _uiService.Hide<StartUIWindow>();
                 Debug.Log("2");
-            } else if(Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                Debug.Log("3");
             }
         }
     }
