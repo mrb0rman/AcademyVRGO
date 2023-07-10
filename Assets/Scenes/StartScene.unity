@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641774349}
   m_Layer: 0
-  m_Name: Conteiner
+  m_Name: ActivateConteiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5068004bbb4879967d7a4927c61660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateConteiner: {fileID: 0}
+  activateConteiner: {fileID: 641774349}
   deactivateConteiner: {fileID: 1432831205}
 --- !u!224 &957562635
 RectTransform:
