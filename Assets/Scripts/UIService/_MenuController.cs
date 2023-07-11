@@ -2,7 +2,7 @@
 
 namespace Script
 {
-    public class MenuController : MonoBehaviour
+    public class _MenuController : MonoBehaviour
     {
         /*public GameObject activePanel;
         public GameObject loadPanel;*/

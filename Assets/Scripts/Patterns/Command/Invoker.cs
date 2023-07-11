@@ -2,8 +2,6 @@
 //Класс Invoker реализует
 //стек комманд, их добавление и удаление из стека
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Script

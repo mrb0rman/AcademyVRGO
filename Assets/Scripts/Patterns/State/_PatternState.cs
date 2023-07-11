@@ -3,7 +3,7 @@
 
 namespace Script
 {
-    public class StateWater : MonoBehaviour
+    public class _PatternState : MonoBehaviour
     {
         private Water water;
         void Start()

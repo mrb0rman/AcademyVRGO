@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Script
 {
@@ -17,8 +18,15 @@ namespace Script
 
         public void NotifyObserver()
         {
-            foreach (IObserver observer in observers)
-                observer.Update();
+            if(observers.Count > 0)
+            {
+                foreach (IObserver observer in observers)
+                    observer.Update();
+            } else
+            {
+                Debug.Log("Наблюдатели отсутсвуют");
+            }
+            
         }
 
         public void RemoveObserver(IObserver observer)
