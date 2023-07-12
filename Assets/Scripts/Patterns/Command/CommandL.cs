@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public class CommandLeft : ICommand
+    public class CommandL : ICommand
     {
         public void Execute()
         {

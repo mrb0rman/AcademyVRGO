@@ -2,8 +2,8 @@
 {
     public interface IState
     {
-        public void Heat(Water water);
-        public void Frost(Water water);
+        public void Up(Object_ @object);
+        public void Down(Object_ @object);
     }
 }
 

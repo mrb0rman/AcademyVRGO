@@ -5,15 +5,15 @@ namespace Script
 {
     public class FirstState : IState
     {
-        public void Frost(Water water)
+        public void Down(Object_ @object)
         {
-            Debug.Log("Охлаждаем пар");
-            water.state = new SecondState(); 
+            Debug.Log("Переход в состояние 2");
+            @object.state = new SecondState(); 
         }
 
-        public void Heat(Water water)
+        public void Up(Object_ @object)
         {
-            Debug.Log("Нагреваем пар");
+            Debug.Log("Состояние 1");
         }
     }
 

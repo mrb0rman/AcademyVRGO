@@ -1,23 +1,23 @@
 ﻿using System;
 namespace Script
 {
-    public class Water
+    public class Object_
     {
         public IState state { get; set; }
 
-        public Water(IState ws)
+        public Object_(IState ws)
         {
             state = ws;
         }
 
-        public void Heat()
+        public void Up()
         {
-            state.Heat(this);
+            state.Up(this);
         }
 
-        public void Frost()
+        public void Down()
         {
-            state.Frost(this);
+            state.Down(this);
         }
     }
 }

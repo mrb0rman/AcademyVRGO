@@ -22,7 +22,7 @@ namespace Script
                 invoker.Execute(new CommandForward());
             } else if (Input.GetKeyDown(KeyCode.D))
             {
-                invoker.Execute(new CommandLeft());
+                invoker.Execute(new CommandL());
             }
         }
     }

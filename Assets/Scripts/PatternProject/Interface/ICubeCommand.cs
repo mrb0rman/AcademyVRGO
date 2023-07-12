@@ -1,6 +1,6 @@
 ﻿namespace Script
 {
-    public interface ICommand
+    public interface ICubeCommand
     {
         void Execute();
         void ExecuteUndo();

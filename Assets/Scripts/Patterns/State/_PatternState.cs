@@ -5,16 +5,16 @@ namespace Script
 {
     public class _PatternState : MonoBehaviour
     {
-        private Water water;
+        private Object_ _object;
         void Start()
         {
-            water = new Water(new FirstState());
-            water.Frost();
-            water.Frost();
-            water.Frost();
-            water.Heat();
-            water.Heat();
-            water.Heat();
+            _object = new Object_(new FirstState());
+            _object.Down();
+            _object.Down();
+            _object.Down();
+            _object.Up();
+            _object.Up();
+            _object.Up();
         }
 
         // Update is called once per frame
