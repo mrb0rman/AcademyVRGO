@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Script.Test
 {
-    [CreateAssetMenu(fileName = "FoodConfig", menuName = "Configs/FoodConfig", order = 0)]
+    [CreateAssetMenu(fileName = "FoodConfig", menuName = "Configs/FoodConfig", order = 1)]
     public class FoodConfig : ScriptableObject
     {
         [SerializeField] private FoodModel[] models;
