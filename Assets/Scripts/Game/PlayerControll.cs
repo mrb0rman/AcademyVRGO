@@ -15,7 +15,7 @@ namespace Script.Game
         // Use this for initialization
         void Start()
         {
-            player = _factoryPrimitive.Create(PrimitiveForm.Cylinder);
+            player = _factoryPrimitive.Create(PrimitiveForm.SmallCube);
         }
 
         // Update is called once per frame
