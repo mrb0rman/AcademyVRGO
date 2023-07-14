@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+// Разделить данные и логику на Enemy и EnemyConroller (сделать так везде)
+// Паттерн наблюдатель - использовать event
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +36,6 @@ namespace Script.Game
 
         private void Update()
         {
-
             if (stateDictionary.ContainsKey(currentState))
             {
                 stateDictionary[currentState].Update();

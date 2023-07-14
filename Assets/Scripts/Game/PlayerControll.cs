@@ -23,6 +23,7 @@ namespace Script.Game
             {
                 player.AddObserver(enemy);
             }
+            player.AddObserver(FindObjectOfType<EnemySpawn>());
         }
 
         // Update is called once per frame
