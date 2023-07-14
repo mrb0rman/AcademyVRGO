@@ -9,13 +9,20 @@ namespace Script.Game
     {
         private Invoker invokerPlayer = new Invoker();
         public Text text;
-        private GameObject player;
+        private Player player;
+        private Enemy[] _enemies;
+        private bool isEnd { get; set; }
 
         private FactoryPrimitiveCube _factoryPrimitive = new FactoryPrimitiveCube();
         // Use this for initialization
         void Start()
         {
             player = _factoryPrimitive.Create(PrimitiveForm.SmallCube);
+            _enemies = FindObjectsOfType<Enemy>();
+            foreach (var enemy in _enemies)
+            {
+                player.AddObserver(enemy);
+            }
         }
 
         // Update is called once per frame
@@ -23,6 +30,11 @@ namespace Script.Game
         {
             InputGetKeyDown();
             text.text = "Step " + invokerPlayer.sCommand.Count;
+            if (invokerPlayer.sCommand.Count >= 10 && !isEnd)
+            {
+                player.NotifyObservers(invokerPlayer.sCommand.Count);
+                isEnd = !isEnd;
+            }
         }
 
         private void InputGetKeyDown()

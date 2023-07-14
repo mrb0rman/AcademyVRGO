@@ -8,7 +8,7 @@ namespace Script.Game
     {
         //загружаешь из ресурсов
         PrimitiveConfig _primitiveConfig;
-        public GameObject Create(PrimitiveForm form)
+        public Player Create(PrimitiveForm form)
         {
             //GameObject gameObject = new GameObject();
             //gameObject.transform.localScale = primitive.size;
@@ -25,7 +25,7 @@ namespace Script.Game
             player.MeshFilter.mesh = model.mesh;
             player.gameObject.transform.localScale = model.size;
             
-            return player.GameObject();
+            return player;
         }
     }
 }

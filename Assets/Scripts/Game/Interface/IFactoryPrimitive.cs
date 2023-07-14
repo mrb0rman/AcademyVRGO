@@ -4,6 +4,6 @@ namespace Script.Game
 {
     public interface IFactoryPrimitive
     {
-        public GameObject Create(Primitive primitive);
+        public Player Create(Primitive primitive);
     }
 }

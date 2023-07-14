@@ -4,9 +4,9 @@ namespace Script.Game
 {
     public class CommandDown : IPlayerCommand
     {
-        private GameObject _gameObject;
+        private Player _gameObject;
 
-        public CommandDown(GameObject gameObject)
+        public CommandDown(Player gameObject)
         {
             _gameObject = gameObject;
         }
