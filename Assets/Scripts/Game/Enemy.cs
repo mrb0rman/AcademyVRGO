@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace Script.Game
 {
-    public class Enemy : Observer
+    public class Enemy : MonoBehaviour
     {
         [SerializeField] private MeshFilter meshFilter;
         [SerializeField] private Renderer renderer;
-        public float HP;
-        public float damage;
         public MeshFilter MeshFilter => meshFilter;
         public Renderer Renderer => renderer;
+        public float HP;
+        public float damage;
         public EnemyState currentState { get; private set; }
         public bool isAttacking { get; private set; }
 
@@ -58,10 +58,6 @@ namespace Script.Game
             }
         }
 
-        public override void OnNotify(int score)
-        {
-            isAttacking = !isAttacking;
-        }
     }
 }
 

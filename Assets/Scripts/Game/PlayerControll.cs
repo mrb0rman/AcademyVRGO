@@ -19,11 +19,6 @@ namespace Script.Game
         {
             player = _factoryPrimitive.Create(PrimitiveForm.SmallCube);
             _enemies = FindObjectsOfType<Enemy>();
-            foreach (var enemy in _enemies)
-            {
-                player.AddObserver(enemy);
-            }
-            player.AddObserver(FindObjectOfType<EnemySpawn>());
         }
 
         // Update is called once per frame
@@ -31,11 +26,7 @@ namespace Script.Game
         {
             InputGetKeyDown();
             text.text = "Step " + invokerPlayer.sCommand.Count;
-            if (invokerPlayer.sCommand.Count >= 10 && !isEnd)
-            {
-                player.NotifyObservers(invokerPlayer.sCommand.Count);
-                isEnd = !isEnd;
-            }
+            
         }
 
         private void InputGetKeyDown()

@@ -3,19 +3,14 @@ using UnityEngine;
 
 namespace Script.Game
 {
-    public class EnemySpawn : Observer
+    public class EnemySpawn : MonoBehaviour
     {
         private FactoryEnemy factoryEnemy;
         private void Start()
         {
             factoryEnemy = new FactoryEnemy();
-            var enenmy = factoryEnemy.Create(EnemyType.Goblin);
-            enenmy.transform.localPosition = gameObject.transform.position;
-        }
-
-        public override void OnNotify(int score)
-        {
-            
+            var enemy = factoryEnemy.Create(EnemyType.Goblin);
+            enemy.transform.localPosition = gameObject.transform.position;
         }
     }
 }
