@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Script.Project
 {
@@ -12,6 +11,7 @@ namespace Script.Project
         public float damage;
         public float speed;
         public float timeLife;
+        public float cost;
     }
 
 }

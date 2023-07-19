@@ -1,14 +1,12 @@
-﻿using System;
-using Script.Game;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Script.Project
 {
     public class Invoker
     {
-        public Stack<ISpellCommand> sCommand = new Stack<ISpellCommand>();
+        public Stack<CreateSpell> sCommand = new Stack<CreateSpell>();
 
-        public void Execute(ISpellCommand command)
+        public void Execute(CreateSpell command)
         {
             if (command != null)
             {

@@ -1,6 +1,4 @@
-﻿using System;
-using Script.Game;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Script.Project
 {

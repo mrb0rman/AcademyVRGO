@@ -38,6 +38,7 @@ public struct SpellCharacter
 {
     public SpellType type;
     public Color color;
+    public float cost;
     public float damage;
     public float speed;
     public float timeLife;
