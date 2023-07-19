@@ -15,14 +15,14 @@
         }
         public void Waste()
         {
-            player.mp = player.mp >= 0 ? player.mp -= 50 : 0;
+            player.mp = player.mp >= 0 ? player.mp -= 20 : 0;
             Change.Invoke();
         }
 
         public void RegenMp()
         {
             if(player.mp <= 0)
-                player.mp += 25;
+                player.mp = player.maxMp;
         }
     }
 }

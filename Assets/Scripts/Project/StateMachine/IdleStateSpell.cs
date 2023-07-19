@@ -36,8 +36,7 @@ namespace Script.Project
         {
             base.PhysicsUpdate();
             spellCommand = new CreateSpell(SpellType.Fire, playerConroller);
-            if(playerConroller.player.mp >= spellCommand.spell.cost)
-                invoker.Execute(spellCommand);
+            invoker.Execute(spellCommand);
         }
 
         public override void Exit()
