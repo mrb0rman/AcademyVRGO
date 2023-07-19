@@ -1,24 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using Script.Game;
+using System.Collections.Generic;
 
-namespace Script.Game
+namespace Script.Project
 {
     public class Invoker
     {
-        public Stack<IPlayerCommand> sCommand = new Stack<IPlayerCommand>();
+        public Stack<ISpellCommand> sCommand = new Stack<ISpellCommand>();
 
-        public void Execute(IPlayerCommand command)
+        public void Execute(ISpellCommand command)
         {
             if (command != null)
             {
                 sCommand.Push(command);
                 sCommand.Peek().Execute();
-
             }
         }
 
         public void Undo()
         {
-            if(sCommand.Count > 0)
+            if (sCommand.Count > 0)
             {
                 sCommand.Peek().ExecuteUndo();
                 sCommand.Pop();
@@ -26,4 +27,5 @@ namespace Script.Game
         }
     }
 }
+
 
