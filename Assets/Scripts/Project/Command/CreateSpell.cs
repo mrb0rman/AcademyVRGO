@@ -7,18 +7,20 @@ namespace Script.Project
     public class CreateSpell
     {
         public Spell spell;
+        private readonly SpellType _type;
         private PlayerConroller playerConroller;
         private static float offset = -4f;
         private FactorySpell factorySpell = new FactorySpell();
 
         public CreateSpell(SpellType type, PlayerConroller playerConroller)
         {
+            _type = type;
             this.playerConroller = playerConroller;
-            spell = factorySpell.Create(type);
         }
 
         public void Execute()
         {
+            spell = factorySpell.Create(_type);
             spell.transform.localScale = Vector3.zero;
             spell.transform.position = playerConroller.player.transform.position
                                        + playerConroller.player.transform.up * 1.5f + playerConroller.player.transform.right * offset;
