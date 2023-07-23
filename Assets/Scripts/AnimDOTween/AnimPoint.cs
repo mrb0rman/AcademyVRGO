@@ -2,20 +2,24 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace AnimDOTween
+namespace Script
 {
     [Serializable]
     public class AnimPoint
     {
-        public Tween Tween;
+        public bool isMoving;
         public Ease EasePosition;
-        public Ease EaseScale;
-        public Ease EaseRotation;
         public Vector3 EndPosition;
-        public Vector3 EndScale;
-        public Quaternion EndRotation;
         public float TimeMove;
+
+        public bool isScale;
+        public Ease EaseScale;
+        public Vector3 EndScale;
         public float TimeScale;
+
+        public bool isRotate;
+        public Ease EaseRotation;
+        public Vector3 EndRotation;
         public float TimeRotation;
         
     }

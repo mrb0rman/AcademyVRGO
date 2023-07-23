@@ -2,40 +2,54 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace AnimDOTween
+namespace Script
 {
     public class AnimatorDOTween : MonoBehaviour
     {
         private Vector3 _startPosition;
         private Vector3 _startScale;
+        private Vector3 _startRotate;
         private AnimConroller _animConroller;
         public Transform cube;
-        public List<AnimPoint> listAnimPoint  = new List<AnimPoint>();
+        public AnimPoint[] listAnimPoint;
 
 
         private void Start()
         {
             
             _animConroller = new AnimConroller(cube);
+            _animConroller.Init(listAnimPoint);
             _startPosition = cube.position;
             _startScale = cube.localScale;
+            _startRotate = cube.eulerAngles;
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
+                ReturnToStartParameters();
                 Anim1();
             }
             else if(Input.GetKeyDown(KeyCode.Alpha2))
             {
-                //ReturnToStartParameters();
-                var seq = DOTween.Sequence();
-                foreach (var animPoint in listAnimPoint)
-                {
-                    seq.Append(cube.DOMove(animPoint.EndPosition, animPoint.TimeMove).SetEase(animPoint.EasePosition)); 
-                }
+                _animConroller.SequenceKill();
+                ReturnToStartParameters();
+                _animConroller.PlayAnimOne();
+                
             }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                _animConroller.SequenceKill();
+                ReturnToStartParameters();
+                _animConroller.PlayAnimTwo();
+            }
+            else if(Input.GetKeyDown(KeyCode.R))
+            {
+                _animConroller.SequenceKill();
+                ReturnToStartParameters(); 
+            }
+
 
         }
  
@@ -43,14 +57,7 @@ namespace AnimDOTween
         {
             cube.position = _startPosition;
             cube.localScale = _startScale;
-        }
-
-        public void KillAllTween()
-        {
-            foreach (var animPoint in listAnimPoint)
-            {
-                animPoint.Tween.Kill();
-            }
+            cube.eulerAngles = _startRotate;
         }
 
         public void Anim1()
