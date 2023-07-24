@@ -22,6 +22,7 @@ namespace Script
         
         public void Init(UIROOT ui)
         {
+            GameObject.Instantiate(Resources.Load("EventSystem"));
             this.ui = ui;
             foreach (var key in loadedWindows.Keys)
             {

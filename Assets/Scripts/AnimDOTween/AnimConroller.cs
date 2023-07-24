@@ -43,12 +43,13 @@ namespace Script
             sequence.Insert(5f, _cube.DOScale(2f, 5f).SetEase(Ease.InOutFlash));
             sequence.Append(_cube.DOMove(new Vector3(-18f, 1f, -4f), 3f));
             sequence.Insert(10f, _cube.gameObject.GetComponent<Renderer>().material.DOColor(Color.white, 5f));
-            sequence.Insert(10f, _cube.DOScale(2f, 5f).SetEase(Ease.OutSine));
+            sequence.Insert(10f, _cube.DOScale(2f, 5f).SetEase(Ease.OutSine))
+                .SetLoops(4);
         }
 
         public void SequenceKill()
         {
-            sequence.Kill();
+            sequence?.Kill();
         }
     }
 }
