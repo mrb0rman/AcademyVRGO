@@ -5,7 +5,7 @@ namespace Script.Project
 {
     public class InputManager : MonoBehaviour
     {
-        private Player player;
+        
         private Vector3 offset;
         private Invoker _invoker = new Invoker();
         private PlayerConroller playerConroller;
@@ -13,14 +13,13 @@ namespace Script.Project
         public float speed;
         public Text text;
         public StateMachine movementSM;
-
+        public Player player;
         public IdleStateSpell waiting;
         // Use this for initialization
+
+
         void Start()
         {
-            
-            Instantiate((GameObject)Resources.Load("level"), new Vector3(0, 0, 0), Quaternion.identity);
-            player = Instantiate(Resources.Load<Player>("Player"), new Vector3(0, 1, 0), Quaternion.identity);
             player.mp = 100f;
             player.maxMp = 100f;
             playerConroller = new PlayerConroller(player);
